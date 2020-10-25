@@ -20,6 +20,13 @@ namespace VueSPA.Controllers
             _DataClients = dataClients;
         }
 
+        // Ex: clients/1
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ClientsDto>> GetClientById(int id)
+        {
+            return await _DataClients.GetClientById(id);
+        }
+
         [HttpPost]
         public async Task<ActionResult> CreateClient(ClientsDto body)
         {

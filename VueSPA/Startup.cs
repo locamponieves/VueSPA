@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Business;
 using DataAccess;
 using Microsoft.AspNetCore.Builder;
@@ -37,6 +38,9 @@ namespace VueSPA
             // Asociamos la interface con la clase
             // Con esto, se puede usar la interfaces en los controladores
             services.AddTransient<IDataClients, DataClients>();
+
+            // Otro middlelware para poder hacer los mapeos
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

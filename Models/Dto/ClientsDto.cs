@@ -1,7 +1,11 @@
-﻿namespace Models.Dto
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Models.Dto
 {
     public class ClientsDto
     {
-        public string Name { get; set; }
+        public int    IdClient { get; set; }
+        [Required]
+        public string Name     { get; set; }
     }
 }
