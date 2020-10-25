@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Models
 {
     public class Orders
     {
+        [Key]
         public int     IdOrder  { get; set; }
         public decimal Iva      { get; set; }
         public decimal Total    { get; set; }

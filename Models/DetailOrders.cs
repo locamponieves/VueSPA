@@ -1,7 +1,10 @@
-﻿namespace Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Models
 {
     public class DetailOrders
     {
+        [Key]
         public int     IdDetailOrder { get; set; }
         public decimal UnitPrice     { get; set; }
         public int     Quantity      { get; set; }
