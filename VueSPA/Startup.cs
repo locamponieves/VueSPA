@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Business;
 using DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,10 @@ namespace VueSPA
             services.AddDbContext<DataContext>(
                 opts => opts.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
+
+            // Asociamos la interface con la clase
+            // Con esto, se puede usar la interfaces en los controladores
+            services.AddTransient<IDataClients, DataClients>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

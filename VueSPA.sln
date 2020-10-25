@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppClient", "AppClient\AppClient.csproj", "{9039BFF9-5B7D-4957-93B8-E611B0A2A138}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppClient", "AppClient\AppClient.csproj", "{9039BFF9-5B7D-4957-93B8-E611B0A2A138}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{5B122B2C-0117-48E1-BB42-7619F17A7039}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{5B122B2C-0117-48E1-BB42-7619F17A7039}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{7ECC6DC8-2DA6-4DEF-9339-C597A613B465}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{7ECC6DC8-2DA6-4DEF-9339-C597A613B465}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{C319376A-C8BF-4439-B764-2C46204B4B74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{C319376A-C8BF-4439-B764-2C46204B4B74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VueSPA", "VueSPA\VueSPA.csproj", "{F9F0FF46-00F2-4C35-99F0-9EEC1194ACD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VueSPA", "VueSPA\VueSPA.csproj", "{F9F0FF46-00F2-4C35-99F0-9EEC1194ACD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
