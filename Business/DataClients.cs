@@ -13,7 +13,8 @@ namespace Business
     public interface IDataClients
     {
         Task<ClientsDto> GetClientById(int id);
-        Task CreateClient(ClientsDto body);
+        Task<ClientsDto> CreateClient(ClientsDto body);
+        Task UpdateClient(int id, ClientsDto body);
     }
 
     public class DataClients : IDataClients
@@ -35,7 +36,7 @@ namespace Business
             );
         }
 
-        public async Task CreateClient(ClientsDto body)
+        public async Task<ClientsDto> CreateClient(ClientsDto body)
         {
             var entry = new Clients
             {
@@ -43,6 +44,18 @@ namespace Business
             };
 
             await _context.AddAsync(entry);
+            await _context.SaveChangesAsync();
+
+            // Retorno el objeto que ha sido procesado para la creación
+            return _mapper.Map<ClientsDto>(entry);
+        }
+
+        public async Task UpdateClient(int id, ClientsDto body)
+        {
+            var entry = await _context.Clients.SingleAsync(x => x.IdClient == id);
+
+            entry.Name = body.Name;
+
             await _context.SaveChangesAsync();
         }
     }

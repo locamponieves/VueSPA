@@ -30,9 +30,23 @@ namespace VueSPA.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateClient(ClientsDto body)
         {
-            await _DataClients.CreateClient(body);
+            var result = await _DataClients.CreateClient(body);
 
-            return Ok();
+            // Retorna un 201
+            return CreatedAtAction(
+                "GetClientById",
+                new {id = result.IdClient},
+                result
+            );
+        }
+        
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateClient(int id, ClientsDto body)
+        {
+            await _DataClients.UpdateClient(id, body);
+
+            // Retorna un 204
+            return NoContent();
         }
     }
 }
