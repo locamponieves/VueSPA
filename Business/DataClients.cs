@@ -1,10 +1,14 @@
 ﻿using AutoMapper;
+using Business.Commons;
+using Business.Extensions;
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using Models.Dto;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +16,7 @@ namespace Business
 {
     public interface IDataClients
     {
+        Task<DataCollections<ClientsDto>> GetAll(int page, int take);
         Task<ClientsDto> GetClientById(int id);
         Task<ClientsDto> CreateClient(ClientsDto body);
         Task UpdateClient(int id, ClientsDto body);
@@ -27,6 +32,15 @@ namespace Business
         {
             _context = context;
             _mapper  = mapper;
+        }
+
+        public async Task<DataCollections<ClientsDto>> GetAll(int page, int take)
+        {
+            return _mapper.Map<DataCollections<ClientsDto>>(
+                await _context.Clients.OrderByDescending(x => x.IdClient)
+                    .AsQueryable()
+                    .PagedAsync(page, take)
+            );
         }
 
         public async Task<ClientsDto> GetClientById(int id)

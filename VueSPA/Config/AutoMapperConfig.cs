@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Business.Commons;
 using Models;
 using Models.Dto;
 
@@ -10,6 +11,7 @@ namespace VueSPA.Config
         public AutoMapperConfig()
         {
             CreateMap<Clients, ClientsDto>();
+            CreateMap<DataCollections<Clients>, DataCollections<ClientsDto>>();
         }
     }
 }

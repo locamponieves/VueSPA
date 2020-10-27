@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business;
+using Business.Commons;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models.Dto;
@@ -18,6 +19,12 @@ namespace VueSPA.Controllers
         public ClientsController(IDataClients dataClients)
         {
             _DataClients = dataClients;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<DataCollections<ClientsDto>>> GetAll(int page, int take = 20)
+        {
+            return await _DataClients.GetAll(page, take);
         }
 
         // Ex: clients/1
