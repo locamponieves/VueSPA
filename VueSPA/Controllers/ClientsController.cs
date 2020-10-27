@@ -48,5 +48,13 @@ namespace VueSPA.Controllers
             // Retorna un 204
             return NoContent();
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> RemoveClient(int id)
+        {
+            await _DataClients.RemoveClient(id);
+
+            return NoContent();
+        }
     }
 }

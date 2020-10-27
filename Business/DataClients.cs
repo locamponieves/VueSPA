@@ -15,6 +15,7 @@ namespace Business
         Task<ClientsDto> GetClientById(int id);
         Task<ClientsDto> CreateClient(ClientsDto body);
         Task UpdateClient(int id, ClientsDto body);
+        Task RemoveClient(int id);
     }
 
     public class DataClients : IDataClients
@@ -55,6 +56,15 @@ namespace Business
             var entry = await _context.Clients.SingleAsync(x => x.IdClient == id);
 
             entry.Name = body.Name;
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task RemoveClient(int id)
+        {
+            _context.Remove(new Clients {
+                IdClient = id
+            });
 
             await _context.SaveChangesAsync();
         }
