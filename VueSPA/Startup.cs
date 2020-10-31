@@ -38,6 +38,7 @@ namespace VueSPA
             // Asociamos la interface con la clase
             // Con esto, se puede usar la interfaces en los controladores
             services.AddTransient<IDataClients, DataClients>();
+            services.AddTransient<IDataProducts, DataProducts>();
 
             // Otro middlelware para poder hacer los mapeos
             services.AddAutoMapper(typeof(Startup));
