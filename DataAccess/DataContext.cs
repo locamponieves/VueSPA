@@ -1,10 +1,11 @@
 ﻿using DataAccess.Config;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace DataAccess
 {
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext
     {
         // En el parámetro viene la cadena de conexión
         // con base se sobrecarga el constructor de la clase heredada(DbContext)
